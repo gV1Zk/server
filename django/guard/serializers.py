@@ -8,7 +8,7 @@ from .models import Button, ButtonClick
 class ButtonViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Button
-        fields = '__all__'
+        fields = ('mts_id', 'geolocation')
 
 
 class ButtonClickCreateSerializer(serializers.ModelSerializer):
@@ -20,8 +20,8 @@ class ButtonClickCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ButtonClick
-        fields = '__all__'
-        read_only_fields = ('created_at', 'updated_at')
+        fields = ('id', 'button', 'type', 'created_at')
+        read_only_fields = ('created_at', )
 
 
 class ButtonClickViewSerializer(serializers.ModelSerializer):
@@ -30,4 +30,4 @@ class ButtonClickViewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ButtonClick
-        fields = '__all__'
+        fields = ('id', 'button', 'type', 'created_at')
