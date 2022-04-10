@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+
+.env
+django/logs/
+django/media/
+django/static/

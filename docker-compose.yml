@@ -1,0 +1,49 @@
+version: "3.2"
+
+services:
+    nginx:
+        image: nginx:1.21.6-alpine
+        container_name: nginx
+        ports:
+            - 80:8080
+        volumes:
+            - ./django/static:/var/www/django/static
+            - ./django/media:/var/www/django/media
+            - ./django/logs:/var/www/django/logs
+            - ./docker/nginx:/etc/nginx/conf.d
+        depends_on:
+            - django
+    django:
+        container_name: django
+        build:
+            context: .
+            dockerfile: ./docker/django/Dockerfile
+        volumes:
+            - ./django:/var/www/django
+        expose:
+            - 8000
+        ports:
+            - 8000:8000
+        command: daphne -b 0.0.0.0 -p 8000 config.asgi:application
+        env_file:
+            - ./.env
+        depends_on:
+            - db
+            - redis
+    redis:
+        container_name: redis
+        image: redis:7.0-rc3-bullseye
+    adminer:
+        image: adminer:4.8.1
+        container_name: adminer
+        ports:
+            - 8080:8080
+    db:
+        image: postgres:14.2-alpine3.15
+        container_name: db
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+        env_file:
+            - ./.env
+volumes:
+    pgdata:

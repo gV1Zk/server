@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "guard"
+version = "0.1.0"
+description = ""
+authors = ["hellwebprice <hellwebprice@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^4.0.3"
+djangorestframework = "^3.13.1"
+Markdown = "^3.3.6"
+django-filter = "^21.1"
+djoser = "^2.1.0"
+psycopg2-binary = "^2.9.3"
+django-cors-headers = "^3.11.0"
+python-socketio = "^5.5.2"
+aioredis = "^2.0.1"
+daphne = "^3.0.2"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
