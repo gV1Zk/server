@@ -302,6 +302,17 @@ django = ">=2.2"
 pytz = "*"
 
 [[package]]
+name = "djangorestframework-gis"
+version = "0.18"
+description = "Geographic add-ons for Django Rest Framework"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+djangorestframework = "*"
+
+[[package]]
 name = "djangorestframework-simplejwt"
 version = "4.8.0"
 description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
@@ -821,7 +832,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "ba6a8faf2cda8b388f01ace4e6edec92d4a85eeb0e4ea8f605e91e19140e91cc"
+content-hash = "1fe64fbdf1971adbfe6e82267095a448d7cca76a1816deaf45a524a91fe0b9ef"
 
 [metadata.files]
 aioredis = [
@@ -1005,6 +1016,10 @@ django-templated-mail = [
 djangorestframework = [
     {file = "djangorestframework-3.13.1-py3-none-any.whl", hash = "sha256:24c4bf58ed7e85d1fe4ba250ab2da926d263cd57d64b03e8dcef0ac683f8b1aa"},
     {file = "djangorestframework-3.13.1.tar.gz", hash = "sha256:0c33407ce23acc68eca2a6e46424b008c9c02eceb8cf18581921d0092bc1f2ee"},
+]
+djangorestframework-gis = [
+    {file = "djangorestframework-gis-0.18.tar.gz", hash = "sha256:6ddd201a208e68f8f11ac71d2df2c030b1280818a4b54681be00e73057fcafb1"},
+    {file = "djangorestframework_gis-0.18-py2.py3-none-any.whl", hash = "sha256:7df5d5a32c3492d55837e2a695ef8f9a5c83dc163d90a0764eaa187091a9a633"},
 ]
 djangorestframework-simplejwt = [
     {file = "djangorestframework_simplejwt-4.8.0-py3-none-any.whl", hash = "sha256:6f09f97cb015265e85d1d02dc6bfc299c72c231eecbe261c5bee5c6b2867f2b4"},

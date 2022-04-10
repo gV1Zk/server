@@ -23,7 +23,9 @@ services:
         expose:
             - 8000
         command: >
-            bash -c "python manage.py collectstatic --no-input &&
+            bash -c "sleep 5 &&
+                     python manage.py collectstatic --no-input &&
+                     python manage.py makemigrations &&
                      python manage.py migrate --no-input &&
                      daphne -b 0.0.0.0 -p 8000 config.asgi:application"
         env_file:
@@ -40,7 +42,7 @@ services:
         ports:
             - 8080:8080
     db:
-        image: postgres:14.2-alpine3.15
+        image: kartoza/postgis:13.0
         container_name: db
         volumes:
             - pgdata:/var/lib/postgresql/data

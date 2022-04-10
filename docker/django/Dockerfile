@@ -10,6 +10,9 @@ ENV PYTHONFAULTHANDLER=1 \
 COPY ./django /var/www/django
 WORKDIR /var/www/django
 
+RUN apt-get update
+RUN apt-get install binutils libproj-dev gdal-bin -y
+
 RUN pip3 install poetry
 RUN poetry config virtualenvs.create false
 RUN poetry install --no-dev

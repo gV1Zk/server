@@ -1,4 +1,5 @@
-from django.db import models
+from django.contrib.gis.db import models
+from django.contrib.gis.geos import Point
 
 # Create your models here.
 
@@ -6,6 +7,7 @@ from django.db import models
 class Button(models.Model):
     mts_id = models.CharField(
         "MTS ID", max_length=191, unique=True, primary_key=True)
+    geolocation = models.PointField('Geolocation', default=Point(0, 0))
     created_at = models.DateTimeField('Created at', auto_now_add=True)
     updated_at = models.DateTimeField('Updated at', auto_now=True)
 

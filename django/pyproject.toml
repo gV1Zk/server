@@ -16,6 +16,7 @@ django-cors-headers = "^3.11.0"
 python-socketio = "^5.5.2"
 aioredis = "^2.0.1"
 daphne = "^3.0.2"
+djangorestframework-gis = "^0.18"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
