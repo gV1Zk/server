@@ -22,9 +22,10 @@ services:
             - ./django:/var/www/django
         expose:
             - 8000
-        ports:
-            - 8000:8000
-        command: daphne -b 0.0.0.0 -p 8000 config.asgi:application
+        command: >
+            bash -c "python manage.py collectstatic --no-input &&
+                     python manage.py migrate --no-input &&
+                     daphne -b 0.0.0.0 -p 8000 config.asgi:application"
         env_file:
             - ./.env
         depends_on:
